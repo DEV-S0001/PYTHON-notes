@@ -1,0 +1,32 @@
+🐍 Python is a high-level, versatile programming language that's designed to be easy to read, write, and understand
+-> Python is Dynamic :-No Type Declaration Needed You don’t need to say what type a variable is
+EG:
+x = 5         # Python treats 'x' as an integer
+x = "hello"   # Now 'x' is a string
+🧱 In Python, it requires indentation .
+🐍Python Interpreter & Shell (REPL)
+->Python is an interpreted language, which means it executes code line by line using an interpreter.
+💻 Shell
+Refers to the interface or tool where the REPL happens.
+When you type python or python3 in the terminal and see >>>, you're inside the Python Shell.
+🧪 REPL (Read–Eval–Print Loop)
+REPL stands for:
+📥 Read your input (the Python code you type)
+🤖 Evaluate the code
+📤 Print the result
+🔁 Loop back and wait for the next command
+
+🛠️ Useful Methods & Functions in Python REPL
+🧮 Built-in Functions
+These work anywhere — including REPL!
+>print() – display output
+>type() – check the type of a variable
+>len() – get the length of strings, lists, etc.
+>Input() – capture user input
+>abs() – absolute value
+>round() – round a number
+>max(), min() – find highest/lowest values
+>sum() – total values in a list or tuple
+>sorted() – return a sorted version of a sequence
+>help() – get help on any object or module
+>dir() – list attributes/methods of object
