@@ -30,3 +30,162 @@ These work anywhere — including REPL!
 >sorted() – return a sorted version of a sequence
 >help() – get help on any object or module
 >dir() – list attributes/methods of object
+
+🧠 PEP 8
+->📘 PEP 8 (Python Enhancement Proposal 8) is the official style guide for writing clean and consistent Python code.
+🧼 1. Code Layout
+Use 4 spaces per indentation level (avoid tabs unless configured properly).
+Keep each line within 79 characters for better readability.
+Separate top-level functions and classes using 2 blank lines to organize code visually.
+🧬 2. Naming Conventions
+1)snake_case (variables, functions, methods, modules):
+This involves using lowercase letters for all words and separating them with underscores. For example: my_variable, calculate_area, process_data.
+2)PascalCase (classes):
+Each word in the class name starts with a capital letter, with no underscores. For example: MyClass, HTTPResponse, BankAccount.
+3)ALL_CAPS (constants):
+All letters are capitalized, and words are separated by underscores. For example: MAX_CONNECTIONS, PI, DEBUG_MODE.
+
+🧠 Static vs Dynamic Typing — Key Concepts
+🔒 Statically Typed Languages
+Definition: Type of each variable is determined at compile time.
+
+Type Declaration: Often required by the programmer (e.g., int x = 10; in C). Some modern statically typed languages support type inference (e.g., Kotlin, Scala, Haskell).
+
+Error Checking: The compiler performs strict type checking before execution — reducing runtime errors.
+
+Common Use Cases: Large, complex systems where safety and performance matter (e.g., enterprise software, systems programming).
+
+Examples: C, C++, Java, Rust, Go, Scala, Kotlin, Haskell
+
+✅ Advantages
+Catch type errors early in the development cycle
+
+Better tooling, optimization, and IDE support
+
+Easier to enforce contracts and interfaces across teams
+
+🔓 Dynamically Typed Languages
+Definition: Variable types are determined at runtime, based on the actual data held.
+
+Type Declaration: Not required — the interpreter assigns types on the fly.
+
+Flexibility: Allows faster development and prototyping but may lead to hidden bugs if types change unexpectedly.
+
+Common Use Cases: Scripting, automation, rapid app development, small to medium-sized projects.
+
+Examples: Python, JavaScript, Ruby, PHP, Perl, Erlang
+
+✅ Advantages
+Quick and flexible coding — ideal for beginners or fast iterations
+
+Cleaner syntax and fewer boilerplate declarations
+
+Excellent for interactive use (e.g., REPL environments)
+
+🔁 Summary of Differences
+Feature	Static Typing	Dynamic Typing
+Type Checking	Compile-time	Runtime
+Type Declaration	Required or inferred	Optional and runtime-determined
+Error Detection	Before execution	During execution
+Development Speed	Slower, more structured	Faster, more flexible
+Common Languages	C, C++, Java, Rust, Scala	Python, JavaScript, PHP, Ruby
+
+🧮 1. Arithmetic Operators
+Used for basic mathematical calculations:
+
++  # Addition
+-  # Subtraction
+*  # Multiplication
+/  # Division
+%  # Modulus (remainder)
+/ /  # Floor Division
+**  # Exponentiation
+
+🔁 2. Assignment Operators
+Used to assign values:
+
+=    # x = 5
++=   # x += 3  (x = x + 3)
+-=   # x -= 2
+*=   # x *= 4
+/=   # x /= 2
+%=   # x %= 3
+**=  # x **= 2
+//=  # x //= 5
+
+🔍 3. Comparison Operators
+Used for logical comparisons:
+
+==   # Equal to
+!=   # Not equal to
+>    # Greater than
+<    # Less than
+>=   # Greater than or equal to
+<=   # Less than or equal to
+
+💡 4. Logical Operators
+Used to combine conditional statements:
+
+->and   # Both conditions are true
+->or    # At least one condition is true
+->not   # Reverses the result (True to False)
+
+🔢 5. Bitwise Operators
+Operate on binary representations:
+
+&    # AND
+|    # OR
+^    # XOR
+~    # NOT
+<<   # Shift left
+>>   # Shift right
+
+🧭 6. Membership Operators
+Used to check presence in a sequence:
+
+->in      # Checks if value exists in a sequence
+->not in  # Checks if value does NOT exist
+
+🧷 7. Identity Operators
+Used to compare memory locations:
+
+->is      # Returns True if both refer to same object
+->is not  # Returns True if they don’t
+
+🧠 String
+->A string is a sequence of characters enclosed in quotes.
+->Python supports single ', double ", and triple quotes ''' or """.
+✨ 2. String Properties
+->mmutable: You cannot change characters in place.
+->Indexed & Sliced: Supports indexing (s[0]) and slicing (s[1:5]).
+->Iterable: You can loop through a string.
+🧪 3. Useful String Methods
+Method	Description	Example
+.upper() |	Converts to uppercase	'abc'.upper() → 'ABC'
+.lower() |	Converts to lowercase	'ABC'.lower() → 'abc'
+.strip() |	Removes whitespace from edges	' hello '.strip() → 'hello'
+.replace() |	Replaces substring	'abc'.replace('a','A') → 'Abc'
+.split() | Splits by a delimiter into a list	'a,b,c'.split(',') → ['a','b','c']
+.find()	| Finds first index of substring	'hello'.find('l') → 2
+.startswith() |	Checks if string starts with prefix	'python'.startswith('py') → True
+.endswith() |	Checks if string ends with suffix	'python'.endswith('on') → True
+
+🔍 5. String Operators
++ → concatenation
+* → repetition
+in / not in → membership
+== / != → comparison
+
+✂️ 6. Slicing & Indexing
+python
+s = "Python"
+s[0]        # 'P'
+s[-1]       # 'n'
+s[1:4]      # 'yth'
+s[::-1]     # 'nohtyP' (reverse string)
+
+🧱 7. Escape Characters
+\n – newline
+\t – tab
+\\ – backslash
+\' or \" – quotes inside string
