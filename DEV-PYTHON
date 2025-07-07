@@ -267,15 +267,17 @@ insert(i, x)	      Insert x at index i	                    my_list.insert(1, 10)
 
 ❌ Remove Items
 Method            	Description	                          Example
-remove(x)	    Removes first occurrence of x          	my_list.remove(2)
-pop(i)	      Removes and returns item at index i   	my_list.pop(0) → returns 1
-clear()	      Empties the entire list               	my_list.clear()
+remove(x)	       Removes first occurrence of x          	my_list.remove(2)
+pop(index)      	Removes and returns item at index i   	my_list.pop(0) → returns 1
+clear()	         Empties the entire list               	my_list.clear()
+pop()            removes element from the last
 
 🔍 Search & Analyze
-Method	           Description	                        Example
-index(x)	    Returns index of first x	           my_list.index(3)
-count(x)	    Counts how many times x appears    	 my_list.count(2)
-in            keyword Checks if item exists	       2 in my_list → True
+Method	           Description	                                 Example
+index(x)	    Returns index of first x	                     my_list.index(3)
+count(x)	    Counts how many times x appears    	          my_list.count(2)
+in           keyword Checks if item exists	                2 in my_list → True
+len()        provides total no of elements present in list
 
 🔁 Sort & Reverse
 Method	       Description	                     Example
