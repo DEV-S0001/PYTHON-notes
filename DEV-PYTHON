@@ -159,16 +159,57 @@ Used to compare memory locations:
 ->mmutable: You cannot change characters in place.
 ->Indexed & Sliced: Supports indexing (s[0]) and slicing (s[1:5]).
 ->Iterable: You can loop through a string.
+
 🧪 3. Useful String Methods
 Method	Description	Example
-.upper() |	Converts to uppercase	'abc'.upper() → 'ABC'
-.lower() |	Converts to lowercase	'ABC'.lower() → 'abc'
-.strip() |	Removes whitespace from edges	' hello '.strip() → 'hello'
-.replace() |	Replaces substring	'abc'.replace('a','A') → 'Abc'
-.split() | Splits by a delimiter into a list	'a,b,c'.split(',') → ['a','b','c']
-.find()	| Finds first index of substring	'hello'.find('l') → 2
-.startswith() |	Checks if string starts with prefix	'python'.startswith('py') → True
-.endswith() |	Checks if string ends with suffix	'python'.endswith('on') → True
+
+capitalize()	Capitalizes first character
+casefold()	Aggressive lowercase for comparison
+center(width)	Centers string with padding
+count(sub)	Counts how many times substring occurs
+encode()	Encodes string to bytes
+endswith(suffix)	Checks if string ends with suffix
+expandtabs(tabsize)	Replaces \t with spaces
+find(sub)	First index of substring (or -1)
+format()	Formats string with placeholders
+format_map(mapping)	Uses dictionary to format string
+index(sub)	First index of substring (raises error if not found)
+isalnum()	Returns True if all characters are alphanumeric
+isalpha()	Returns True if all characters are alphabetic
+isascii()	Returns True if all characters are ASCII
+isdecimal()	Returns True if all characters are decimal digits
+isdigit()	Returns True if all characters are digits
+isidentifier()	Returns True if string is valid Python identifier
+islower()	Returns True if all characters are lowercase
+isnumeric()	Returns True if all characters are numeric
+isprintable()	Returns True if all characters are printable
+isspace()	Returns True if all characters are whitespace
+istitle()	Returns True if string is title-cased
+isupper()	Returns True if all characters are uppercase
+join(iterable)	Joins elements using the string as separator
+ljust(width)	Left-justifies string in field of given width
+lower()	Converts string to lowercase
+lstrip()	Removes leading whitespace (or characters)
+maketrans()	Builds translation table for use with translate()
+partition(sep)	Splits string into 3 parts around separator
+replace(old, new)	Replaces all instances of old with new
+rfind(sub)	Last index of substring (or -1)
+rindex(sub)	Last index (raises error if not found)
+rjust(width)	Right-justifies string
+rpartition(sep)	Like partition() but starts from end
+rsplit(sep)	Splits from right side
+rstrip()	Removes trailing whitespace (or characters)
+split(sep)	Splits string by separator
+splitlines()	Splits string into lines
+startswith(prefix)	Checks if string starts with prefix
+strip()	Removes leading and trailing whitespace (or characters)
+swapcase()	Swaps case of each character
+title()	Converts string to title case
+translate(table)	Translates characters using mapping table
+upper()	Converts string to uppercase
+zfill(width)	Pads string with zeros on the left
+
+
 
 🔍 5. String Operators
 + → concatenation
@@ -189,3 +230,57 @@ s[::-1]     # 'nohtyP' (reverse string)
 \t – tab
 \\ – backslash
 \' or \" – quotes inside string
+
+what is array?
+ An array is a data structure used to store a collection of items—typically of the same type—in a single, organized unit. 
+It’s like a row of labeled boxes where each box holds a value and you can access them by index. 📦
+
+📦 What Is a Structured Array?
+A structured array is a type of NumPy array where each element can have multiple fields, like a row in a database or a record in a table. 
+Each field has a name and its own data type.
+EG-[ ('Alice', 25, 5.5), ('Bob', 30, 6.1), ... ]
+Where each row has:
+A name (string),
+An age (integer),
+A height (float)
+✅ Benefits of Structured Arrays
+->You can store and work with tabular data efficiently.
+->Each column (field) can have its own type.
+->Helpful for data analysis, machine learning, and working with datasets.
+
+LIST 
+🧾 Definition:
+->A list is an ordered collection of items, which can be changed (mutable), and it allows duplicate values.
+🎯 Key Features of Lists
+Feature	      Description
+Ordered	      | Items stay in the same order you added them
+Mutable	      | You can change items, add, or remove them
+Heterogeneous	| Can store different types: strings, numbers, even other lists
+Indexed	      | Access items using positions starting from 0
+Allows Duplicates	| [1, 2, 2, 3] is valid
+
+➕ Add & Insert
+Method	                     Description	                      Example
+append(x)	          Add x to the end of the list	          my_list.append(4)
+extend(iterable)	  Add elements from another iterable	    my_list.extend([6, 7])
+insert(i, x)	      Insert x at index i	                    my_list.insert(1, 10)
+
+❌ Remove Items
+Method            	Description	                          Example
+remove(x)	    Removes first occurrence of x          	my_list.remove(2)
+pop(i)	      Removes and returns item at index i   	my_list.pop(0) → returns 1
+clear()	      Empties the entire list               	my_list.clear()
+
+🔍 Search & Analyze
+Method	           Description	                        Example
+index(x)	    Returns index of first x	           my_list.index(3)
+count(x)	    Counts how many times x appears    	 my_list.count(2)
+in            keyword Checks if item exists	       2 in my_list → True
+
+🔁 Sort & Reverse
+Method	       Description	                     Example
+sort()	     Sorts list in ascending order	   my_list.sort()
+reverse()    Reverses the list’s order	       my_list.reverse()
+
+# List comprehension
+squares = [x**2 for x in range(5)]  # → [0, 1, 4, 9, 16]
