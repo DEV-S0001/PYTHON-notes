@@ -251,7 +251,8 @@ A height (float)
 LIST 
 🧾 Definition:
 ->A list is an ordered collection of items, which can be changed (mutable), and it allows duplicate values.
-🎯 Key Features of Lists
+
+ 🎯 Key Features of Lists
 Feature	      Description
 Ordered	      | Items stay in the same order you added them
 Mutable	      | You can change items, add, or remove them
@@ -262,14 +263,14 @@ Allows Duplicates	| [1, 2, 2, 3] is valid
 ➕ Add & Insert
 Method	                     Description	                      Example
 append(x)	          Add x to the end of the list	          my_list.append(4)
-extend(iterable)	  Add elements from another iterable	    my_list.extend([6, 7])
-insert(i, x)	      Insert x at index i	                    my_list.insert(1, 10)
+extend(iterable)	   Add elements from another iterable	    my_list.extend([6, 7])
+insert(i, x)	       Insert x at index i	                   my_list.insert(1, 10)
 
 ❌ Remove Items
 Method            	Description	                          Example
 remove(x)	       Removes first occurrence of x          	my_list.remove(2)
-pop(index)      	Removes and returns item at index i   	my_list.pop(0) → returns 1
-clear()	         Empties the entire list               	my_list.clear()
+pop(index)      	Removes and returns item at index i    	my_list.pop(0) → returns 1
+clear()	         Empties the entire list               	 my_list.clear()
 pop()            removes element from the last
 
 🔍 Search & Analyze
@@ -281,8 +282,238 @@ len()        provides total no of elements present in list
 
 🔁 Sort & Reverse
 Method	       Description	                     Example
-sort()	     Sorts list in ascending order	   my_list.sort()
+sort()	      Sorts list in ascending order	   my_list.sort()
 reverse()    Reverses the list’s order	       my_list.reverse()
+
+📌 Max() and Min()
+max() returns the largest value from a list or iterable.
+min() returns the smallest value from a list or iterable.
+->🔹 Using key Parameter:
+You can use key= to customize how values are compared.
+words = ["hi", "hello", "hey"]
+print(max(words, key=len))  # → hello
+print(min(words, key=len))  # → hi
 
 # List comprehension
 squares = [x**2 for x in range(5)]  # → [0, 1, 4, 9, 16]
+
+🧠 Tuples 
+🔹 What Is a Tuple?
+->A tuple is an immutable, ordered sequence of elements.
+->Defined using parentheses () or without them (but comma is essential).
+
+EG:
+t1 = (1, 2, 3)
+t2 = 1, 2, 3  # also a tuple
+
+🔹 Key Properties
+Feature	                         Description
+Ordered                	Maintains insertion order
+Immutable	              Cannot change after creation
+Allow Duplicates       	Yes
+Can Store Mixed Types  	Yes (int, str, list, etc.)
+
+🔹Tuple Creation
+Empty tuple: t = ()
+Single element: t = (5,) (comma is necessary)
+Nested tuples: t = (1, (2, 3), 4).
+
+🔹Accessing Elements
+Indexing: t for the first element, t[-1] for the last.
+Slicing: t[1:4] gives a new tuple with elements from index 1 to 3.
+Nested access: t[1] for nested tuples.
+
+🔹Basic Tuple Operations
+Operation              	Example                       	Description
+Concatenation        	(1,2) + (3,4)	                  Combine tuples
+Repetition	           ('a',)*3	                       Repeat tuple
+Slicing	              t[1:3]	                         Extract a sub-tuple
+Membership	           'a' in t	                       Check if an item exists
+Length               	len(t)	                         Number of elements
+Unpacking	            a, b = (1, 2)	                  Assign tuple elements to variables
+
+🔹Tuple Functions & Methods
+Function/Method     Purpose                     	            Example
+len(t)	             Returns the number of items	             len((1,2,3)) → 3
+max(t)             	Returns the largest item	                max((1,3,2)) → 3
+min(t)              Returns the smallest item	               min((1,3,2)) → 1
+sum(t)             	Returns the sum of elements(if numeric)	 sum((1,2,3)) → 6
+count(x)	           how many times "x" appears               (1,2,2,3).count(2) → 2
+index(x)	           Returns first index of x	                (1,2,3).index(2) → 11
+sort() Method       modifies the original list               SYNTAX = list(sorted(TUP1,key=None, reverse=False)
+zip()               to pair up elements from all tuples
+
+ #IF TUPLE CONVERTED TO LIST ,IT CAN BE CHANGED OR MUTABLE
+🔹Tuple Packing and Unpacking in Python
+1. Tuple Packing
+->Definition: Packing is the process of combining multiple values into a single tuple.
+->How: Assigning multiple comma-separated values to a single variable automatically creates a tuple.
+
+2. Tuple Unpacking
+->Definition: Unpacking extracts the individual elements of a tuple into separate variables.
+->Requirement: The number of variables on the left must match the number of elements in the tuple,
+unless using extended unpacking.
+
+3. Extended Unpacking with *
+->Allows capturing multiple elements into a list during unpacking.
+->Useful when the number of variables is fewer than the number of tuple elements.
+
+🔹Python range() 
+What is range()?
+The range() function generates an immutable sequence of integers.
+It is commonly used for looping a specific number of times or generating a sequence of numbers.
+SYNTAX:
+range(stop)
+range(start, stop)
+range(start, stop, step)
+
+🔹Tuple comprehension
+->Tuple comprehension	Not supported directly	(x for x in iterable) is a generator
+->Imitate with list comp	tuple([x for x in iterable])	Creates tuple from list comprehension
+->Imitate with generator	tuple(x for x in iterable)	Creates tuple from generator expression
+
+Tuple Comprehension in Python: Accurate Notes
+1. No Direct Tuple Comprehension Syntax
+Python does not support direct tuple comprehension like list, set, or dictionary comprehensions.
+Writing (x for x in iterable) creates a generator expression, not a tuple.
+This is because tuples are immutable and cannot be built incrementally like lists or sets.
+
+2. How to Create Tuples Using Comprehension-Like Syntax
+You can imitate tuple comprehension by using:
+List comprehension inside the tuple() constructor, or
+Generator expression inside the tuple() constructor.
+
+✅ lambda Function()
+Think of lambda as a compact way to write small functions, especially when you don't want to use a full def block.
+EG:
+1)
+add = lambda x, y: x + y
+print(add(3, 5))  # Output: 8
+
+2)🌀 Sorting with lambda:
+data = [('apple', 3), ('banana', 1), ('cherry', 2)]
+sorted_data = sorted(data, key=lambda x: x[1])
+print(sorted_data)  # Sorted by number
+
+🔑key Function()
+The key parameter is used in functions like sorted(), max(), min(), etc.,
+to specify a function that will be applied to each element before comparison.
+-> DEFINES ON WHAT BASIS ? 
+EG : key == len # means to operate on basis of length
+
+🧱SETS
+Unordered, mutable collection of unique elements
+Defined with curly braces {} or using set() constructor
+Duplicate elements are automatically removed
+EG:
+A = {1, 2, 3}
+B = set([2, 3, 4])
+ 
+➕ Adding Elements to a Set
+1)add() – Adds a single element
+EG:
+A = {1, 2}
+A.add(3)
+# A becomes {1, 2, 3}
+
+2)update() – Adds multiple elements (from list, set, tuple, etc.)
+EG:
+A.update([4, 5])
+# A becomes {1, 2, 3, 4, 5}
+
+➖ Removing Elements from a Set
+3)remove() – Removes specific item (error if not found)
+EG:
+A.remove(2)  # KeyError if 2 not in A
+
+4)discard() – Removes item if present (no error if not)
+EG:
+A.discard(10)  # Safe even if 10 is not in A
+
+5)pop() – Removes and returns a random element
+EG:
+val = A.pop()  # Element removed randomly
+
+6)clear() – Removes all elements
+EG:
+A.clear()
+
+🧮 Set Operations  
+Operation            	                Syntax	                                    Description
+Union(ALL ELEMENTS)              `A  orA.union(B)`                      	  Combines all elements
+Intersection(COMMON IN BOTH)  	   A & B or A.intersection(B)	              Common elements only
+Difference                       	A - B or A.difference(B)	                Items in A but not in B
+Symmetric Diff(UNIQUE ELEMENTS)	  A ^ B or A.symmetric_difference(B)    	  Items in A or B but not both
+Subset Check	                     A <= B or A.issubset(B)                 	A is contained in B
+Superset Check	                   A >= B or A.issuperset(B)	               B is contained in A
+Disjoint Check	                   A.isdisjoint(B)	                         No common elements
+
+1️⃣ Union – Combines all unique elements
+EG:
+A = {1, 2, 3}
+B = {3, 4, 5}
+
+print("Union:", A | B)  # or A.union(B)
+# Output: {1, 2, 3, 4, 5}
+✅ Useful for merging datasets without duplicates.
+
+2️⃣ Intersection – Finds common elements
+EG:
+print("Intersection:", A & B)  # or A.intersection(B)
+# Output: {3}
+✅ Helps find overlap in choices, preferences, or results.
+
+3️⃣ Difference – Elements in A not in B
+EG:
+print("A - B:", A - B)  # or A.difference(B)
+# Output: {1, 2}
+✅ Great for finding unique entries or exclusions.
+
+4️⃣ Symmetric Difference – Elements in either set but not both
+EG:
+print("Symmetric Difference:", A ^ B)  # or A.symmetric_difference(B)
+# Output: {1, 2, 4, 5}
+✅ Identifies mismatches or disjoint items.
+
+5️⃣ Subset & Superset Checks
+EG:
+C = {1, 2}
+print("C is subset of A:", C.issubset(A))      # True
+print("A is superset of C:", A.issuperset(C))  # True
+✅ Important in permissions, group hierarchies, and filtering.
+
+6️⃣ Disjoint Check – No common elements
+EG:
+D = {10, 11}
+print("A and D are disjoint:", A.isdisjoint(D))  # True
+
+ 🧠 Quick Notes for Interviews
+->Sets are unordered, so indexing/slicing doesn't work.
+->Use sets for membership tests, duplicate removal, and fast comparisons.
+->set() on a string or list removes duplicates.
+->Ideal for solving problems like:
+->Finding unique items
+->Checking overlap
+->Counting distinct values
+
+🧠 Set Comprehension
+Set comprehension is a concise way to create sets from iterable data sources using a single line of code, following the pattern:
+SYNTAX:
+{expression for item in iterable if condition}
+
+->Similar to list comprehension, but uses {} to build a set
+->Automatically removes duplicates
+->Only includes items that meet the specified condition
+
+🧠 Basic Built-in Functions for Sets
+Function          	Description
+len(set)	          Returns number of elements
+max(set)	          Largest value in set
+min(set)	          Smallest value in set
+sum(set)	          Sum of all elements
+sorted(set)	       Returns sorted list
+any(set)	          True if at least one item is truthy
+all(set)	          True if all items are truthy
+enumerate(set)    	Returns index-value pairs
+list(set)	         Converts set to list
+tuple(set)        	Converts set to tuple
