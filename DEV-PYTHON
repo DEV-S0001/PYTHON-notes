@@ -517,3 +517,43 @@ all(set)	          True if all items are truthy
 enumerate(set)    	Returns index-value pairs
 list(set)	         Converts set to list
 tuple(set)        	Converts set to tuple
+
+🧊Frozenset
+->It’s an immutable set — once created, you can’t change it.
+->Like a regular set, it stores unique, unordered elements.
+->Can be used as a dictionary key or element in another set (regular sets cannot).
+EG:
+fs = frozenset([1, 2, 3, 2])
+print(fs)  # Output: frozenset({1, 2, 3})
+
+✅ Key Features
+Property	             Regular Set	              Frozenset
+Mutable	              ✅ Yes                   	❌ No
+Hashable	             ❌ No                    	✅ Yes
+Allows duplicates	    ❌ No	                    ❌ No
+Uses curly braces	    ✅ Yes	                   ❌ No (use frozenset())
+
+🔒 What You CAN Do with a Frozenset
+1)len(fs) – Count items
+
+2)min(fs), max(fs) – Get smallest/largest
+
+3)fs.union(...), fs.intersection(...), fs.difference(...) – Set operations
+
+4)fs.isdisjoint(...), fs.issubset(...), fs.issuperset(...)
+
+🚫 What You CAN’T Do
+1)No add(), remove(), pop(), clear()
+
+2)No updates — it’s frozen!
+
+✅ Examples of Hashable Types
+Type     	Hashable?	    Can be Dict Key?
+int	      ✔️ Yes	       ✔️ Yes
+float	    ✔️ Yes	       ✔️ Yes
+str      	✔️ Yes	       ✔️ Yes
+tuple	    ✔️ Yes (only if all elements are hashable)	✔️ Yes
+frozenset	✔️ Yes	        ✔️ Yes
+list	     ❌ No         	❌ No
+dict	     ❌ No	         ❌ No
+set	      ❌ No	         ❌ No
