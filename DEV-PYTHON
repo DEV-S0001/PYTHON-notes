@@ -402,9 +402,9 @@ to specify a function that will be applied to each element before comparison.
 EG : key == len # means to operate on basis of length
 
 🧱SETS
-Unordered, mutable collection of unique elements
-Defined with curly braces {} or using set() constructor
-Duplicate elements are automatically removed
+->Unordered, mutable collection of unique elements
+->Defined with curly braces {} or using set() constructor
+->Duplicate elements are automatically removed
 EG:
 A = {1, 2, 3}
 B = set([2, 3, 4])
@@ -497,8 +497,8 @@ print("A and D are disjoint:", A.isdisjoint(D))  # True
 ->Counting distinct values
 
 🧠 Set Comprehension
-Set comprehension is a concise way to create sets from iterable data sources using a single line of code, following the pattern:
-SYNTAX:
+->Set comprehension is a concise way to create sets from iterable data sources using a single line of code, following the pattern:
+->SYNTAX:
 {expression for item in iterable if condition}
 
 ->Similar to list comprehension, but uses {} to build a set
@@ -557,3 +557,296 @@ frozenset	✔️ Yes	        ✔️ Yes
 list	     ❌ No         	❌ No
 dict	     ❌ No	         ❌ No
 set	      ❌ No	         ❌ No
+
+🧠 Dictionary 
+->A dictionary is a built-in Python data structure that stores data as key-value pairs.
+->Keys must be unique and immutable (e.g., strings, numbers, tuples).
+->Values can be of any data type, including other dictionaries.
+->From Python 3.7+, dictionaries maintain insertion order.
+
+SYNTAX:
+{key1: value1, key2: value2, ...}
+EG:
+my_dict = {'name': 'Alice', 'age': 30, 'skills': ['Python', 'SQL']}
+
+🔑 Key Characteristics of Python Dictionaries
+Characteristic	                   Description
+1)Mutable	                   You can add, update, or delete items after creation.
+2)Ordered (Python ≥ 3.7)    	Maintains insertion order of items.
+3)Uniqueness	                Keys must be unique; duplicate keys overwrite previous values.
+4)Immutability	              Keys must be immutable types (e.g., strings, numbers, tuples).
+5)Value Flexibility	         Values can be of any data type, including other dictionaries.
+6)Fast Lookup	               Uses hashing for constant-time access to values via keys.
+7)Indexed by Keys	           Accessed using keys, not numerical indices like lists.
+8)Case Sensitivity	          Keys are case-sensitive: 'Name' and 'name' are treated as different
+
+🛠️ Common Operations
+1) Creating a dictionary
+person = {'name': 'Alice', 'age': 30}
+
+2) Accessing values
+i>print(person['name'])           # Output: Alice
+ii>print(person.get('city', 'N/A'))  # Output: N/A
+
+3) Adding/updating
+person['city'] = 'Indore'
+
+4) Removing items
+i>del person['age']
+ii>person.pop('city')
+iii>person.clear()  # Removes all items
+
+🧰 Dictionary Methods
+Method	          Description
+->clear()	         Removes all items
+->copy()	          Returns a shallow copy
+->fromkeys()	      Creates dictionary from keys with default value
+->get(key)	        Returns value for key or None if not found
+->items()	         Returns view object of key-value pairs
+->keys()	          Returns view object of keys
+->values()	        Returns view object of values
+->pop(key)	        Removes item with specified key and returns its value
+->popitem()	       Removes and returns last inserted key-value pair
+->setdefault()	    Returns value of key; inserts key with default if not found
+->update()	        Updates dictionary with another dictionary or iterable of key-value pairs
+
+🔁 Basic Iteration Techniques
+1. Iterate Over Keys (Default Behavior)
+EG:
+my_dict = {'a': 1, 'b': 2, 'c': 3}
+for key in my_dict:
+    print(key)
+This loops through all the keys in the dictionary.
+
+2. Iterate Over Keys Explicitly
+EG:
+for key in my_dict.keys():
+    print(key)
+Same as above, but more explicit.
+
+3. Iterate Over Values
+EG:
+for value in my_dict.values():
+    print(value)
+Loops through all the values.
+
+4. Iterate Over Key-Value Pairs
+EG:
+for key, value in my_dict.items():
+    print(f"{key}: {value}")
+Most common way to access both keys and values simultaneously.
+
+🧪 Advanced Iteration Techniques
+
+5. Using enumerate() for Index Tracking
+EG:
+for index, (key, value) in enumerate(my_dict.items()):
+    print(f"{index}: {key} -> {value}")
+
+6. Using zip() to Pair Keys and Values
+EG:
+for key, value in zip(my_dict.keys(), my_dict.values()):
+    print(f"{key}: {value}")
+
+7. Dictionary Comprehension
+EG:
+squared = {key: value**2 for key, value in my_dict.items()}
+Creates a new dictionary by applying logic during iteration.
+
+
+🔹Method	        Removes...	                    Returns...	               Error if Missing?
+i)pop(key)	      Specific key-value pair	       Value	                    Yes (unless default)
+ii)popitem()	    Last inserted item	            Tuple(key, value)	        Yes (if empty)
+
+
+⭐Merging Two Dictionary
+
+🔧 1. update() Method
+
+EG:
+dict1 = {'a': 1, 'b': 2}
+dict2 = {'b': 3, 'c': 4}
+
+dict1.update(dict2)
+print(dict1)  # {'a': 1, 'b': 3, 'c': 4}
+
+->Modifies dict1 in place.
+->Overwrites values if keys overlap.
+
+🧩 2. Dictionary Unpacking (**)
+
+EG:
+dict3 = {**dict1, **dict2}
+Creates a new dictionary.
+
+->Available from Python 3.5+.
+->Later keys overwrite earlier ones.
+
+🧱 3. Merge Operator (|)
+
+EG:
+dict3 = dict1 | dict2
+Introduced in Python 3.9+.
+
+->Returns a new dictionary.
+->Overlapping keys take values from the right-hand dictionary.
+
+🔁 4. Loop-Based Merge
+
+EG:
+merged = dict1.copy()
+for k, v in dict2.items():
+    merged[k] = v
+
+->Useful for custom merge logic.
+->Works in all Python versions.
+
+🧠Nested Dictionary
+->A nested dictionary is a dictionary where values themselves are dictionaries. This structure allows you to represent hierarchical or grouped data.
+
+EG:
+students = {
+    "student1": {"name": "Ariana", "age": 20, "grade": "A"},
+    "student2": {"name": "Travis", "age": 22, "grade": "B"}
+}
+
+🛠️ Creating Nested Dictionaries
+1. Direct Assignment
+EG:
+data = {
+    "item1": {"price": 100, "stock": 20},
+    "item2": {"price": 150, "stock": 35}
+}
+
+2. Using Loops
+EG:
+nested = {}
+for i in range(3):
+    nested[i] = {"value": i * 10}
+
+
+3)🔍 Accessing Elements
+EG:
+print(students["student1"]["name"])  # Output: Ariana
+print(students.get("student2", {}).get("grade", "N/A"))  # Output: B
+Use .get() to avoid KeyError when accessing nested keys.
+
+4)✏️ Modifying Nested Dictionaries
+EG:
+students["student1"]["grade"] = "A+"
+students["student3"] = {"name": "Luna", "age": 21, "grade": "A"}
+
+5)❌ Deleting Elements
+EG:
+del students["student2"]["age"]       # Remove inner key
+del students["student3"]              # Remove entire entry
+
+6)🔁 Iterating Through Nested Dictionaries
+EG:
+for student_id, info in students.items():
+    print(f"\n{student_id}:")
+    for key, value in info.items():
+        print(f"  {key}: {value}")
+
+🧭 Dictionary Key Sorting in Python (No lambda, No def)
+
+✅ 1. Basic: Sort by Keys (Ascending Order)
+EG:
+
+d = {'c': 3, 'a': 1, 'b': 2}
+sorted_dict = dict(sorted(d.items()))
+Uses sorted() on .items()
+
+->Automatically sorts by keys
+->Converts back to dictionary using dict()
+
+✅ 2. Sort by Keys in Descending Order
+EG:
+
+sorted_dict = dict(sorted(d.items(), reverse=True))
+->reverse=True sorts keys from highest to lowest
+
+✅ 3. Sort Dictionary by Keys using List Comprehension
+EG:
+
+sorted_dict = {k: d[k] for k in sorted(d)}
+->Creates a new dict sorted by keys (ascending)
+->Efficient for quick logic without .items()
+
+EXPLANATION:
+
+d = {'banana': 3, 'apple': 1, 'cherry': 2}
+
+->What's Happening Step-by-Step:
+->sorted(d) gives you a sorted list of keys: ['apple', 'banana', 'cherry']
+->For each key k, you grab its value using d[k]
+->{k: d[k] for ...} builds a new dictionary, one key-value pair at a time
+->Done! You now have a sorted dictionary: {'apple': 1, 'banana': 3, 'cherry': 2}
+
+✅ 4. Sort Dictionary by Keys with Comprehension (Descending)
+EG:
+
+sorted_dict = {k: d[k] for k in sorted(d, reverse=True)}
+->Works the same as above, but in reverse key order
+
+
+🔢 Dictionary Value Sorting Techniques
+Let’s use this sample dictionary:
+EG:
+d = {'apple': 40, 'banana': 10, 'cherry': 25}
+
+✅ 1. Using operator.itemgetter() (No lambda, No def)
+EG:
+
+import operator
+sorted_dict = dict(sorted(d.items(), key=operator.itemgetter(1)))
+Grabs the second item (value) from each pair
+
+reverse=True adds descending order
+
+✅ 2. Using lambda (Inline Function)
+EG:
+
+sorted_dict = dict(sorted(d.items(), key=lambda item: item[1]))
+Most commonly used in quick scripts
+
+Can sort by custom logic too (item[1] % 10, etc.)
+
+✅ 3. Using def Function (Custom Key Extractor)
+EG:
+
+def get_value(pair):
+    return pair[1]
+
+sorted_dict = dict(sorted(d.items(), key=get_value))
+Clearer when sorting logic is reused or complex
+
+Supports descending with reverse=True
+
+✅ 4. Using Dictionary Comprehension
+EG:
+
+sorted_dict = {k: v for k, v in sorted(d.items(), key=lambda item: item[1])}
+Wraps sorted result into a new dictionary
+
+Descending: reverse=True in sorted()
+
+✅ 5. Sorting Only Values (No Keys)
+EG:
+
+sorted_values = sorted(d.values())
+Returns list of values in order
+
+Doesn’t retain key association — more useful for value analysis
+
+✅ 6. Sort Dictionary with Nested Values
+EG:
+
+nested = {
+    'item1': {'score': 82},
+    'item2': {'score': 96}
+}
+
+import operator
+sorted_nested = dict(sorted(nested.items(), key=lambda x: x[1]['score']))
+Sorts based on inner field like 'score'
