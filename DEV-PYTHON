@@ -1116,4 +1116,160 @@ evens = list(filter(lambda x: x % 2 == 0, nums))
 print(evens)  # Output: [2, 4, 6]
 
 
+🔄 Map()
+->The map() function applies a given function to every item in an iterable (like a list or tuple) and returns a new iterable (usually converted to a list).
 
+🛠️ Syntax:
+map(function, iterable)
+->function – a function that defines how each item should be transformed
+->iterable – the collection you want to transform
+
+->⚠️ Like filter(), the result is a special object—use list() or tuple() to view it.
+
+✅ Examples
+1. 📌 Double Each Number
+
+nums = [1, 2, 3, 4]
+doubled = list(map(lambda x: x * 2, nums))
+print(doubled)  # Output: [2, 4, 6, 8]
+
+2. 🔠 Format Names
+
+names = ["alice", "BOB", "CharLie"]
+formatted = list(map(lambda name: name.title(), names))
+print(formatted)  # Output: ['Alice', 'Bob', 'Charlie']
+
+🧠Reduce()
+->The reduce() function takes a function and a sequence and applies the function cumulatively to the items in the sequence. It's like saying:
+->“Take the first two items, apply the function. Then take that result and the next item, apply the function again... until you’ve gone through the whole list.”
+
+->🔔 Note: It lives in the functools module, so you have to import it first.
+
+🛠️ Syntax
+
+from functools import reduce
+reduce(function, iterable)
+->function: Must take two arguments
+->iterable: A list, tuple, or any sequence
+
+1.✖️ Product of All Numbers
+EG:
+from functools import reduce
+nums = [1, 2, 3, 4]
+product = reduce(lambda x, y: x * y, nums)
+print(product)  # Output: 24
+
+🎯 When to Use reduce()
+Use it when:
+->You want to accumulate(TOGETHER) or collapse a sequence into a single result
+->The operation is repetitive and binary (like adding, multiplying, comparing)
+->You want concise code instead of looping manually.
+
+
+Featur     	      filter()                                  	    map()	                                     reduce()
+✅ Goal	          Keep items that match a condition	             Transform each item	                       Combine all items into a single value
+🎯 Function      type	Returns True/False for each item	          Returns modified version of each item	     Takes two items and returns one result
+📦 Output        	A subset of the original iterable	             A new iterable with modified values	       A single final result (number, string, etc.)
+🛠️ Common use    	Filtering data                                	Formatting or calculations                	Summarizing or aggregating data
+
+
+
+🧠 What Is a Nested Function?
+->A nested function is a function that’s defined inside another function. It's like one function hiding inside another—just like nesting dolls!
+->This is useful when:
+I)You want a helper function that’s used only within a larger one
+II)You need to encapsulate logic or protect scope
+III)You’re dealing with closures or decorators
+
+🛠️ Syntax EG:
+
+def outer_function(x):
+    def inner_function(y):
+        return y * 2
+    result = inner_function(x)
+    return result + 1
+
+print(outer_function(5))  # Output: 11
+
+Explanation:
+->inner_function is defined inside outer_function
+->It’s only accessible within the outer_function
+->outer_function uses it and then does its own logic
+
+✅ Real-Life Analogy
+->Imagine you're making a pizza (outer_function). 
+->You use a sauce recipe (inner_function) that’s not shared outside the kitchen—it helps make the pizza perfect, but no one uses it separately.
+
+🧪 Advanced Use: Closures
+If the inner function uses variables from the outer function and returns itself, it becomes a closure.
+
+def make_multiplier(factor):
+    def multiply(x):
+        return x * factor
+    return multiply
+
+double = make_multiplier(2)
+print(double(5))  # Output: 10
+
+🎯 Key Takeaways
+->Nested functions help with scope and organization
+->They’re essential for building closures and decorators
+->You can’t access an inner function outside its outer function unless it's returned
+
+
+🧠 1. Local Variable
+->A variable defined inside a function and accessible only within that function.
+
+🔍 Example:
+
+def greet():
+    message = "Hello!"  # local variable
+    print(message)
+
+greet()
+# print(message)  # ❌ Error: message is not accessible here
+
+🌍 2. Global Variable
+->A variable defined outside of all functions and accessible anywhere in the code, including inside functions (unless overridden).
+
+🔍 Example:
+python
+name = "Alice"  # global variable
+
+def greet():
+    print("Hi", name)
+
+greet()  # Output: Hi Alice
+🔔 To modify a global variable inside a function, use the global keyword:
+
+count = 0
+
+def increment():
+    global count
+    count += 1
+
+increment()
+print(count)  # Output: 1
+
+🔄 3. Nonlocal Variable
+->Used in nested functions to modify a variable from the outer (enclosing) function, but not global scope.
+
+🔍 Example:
+
+def outer():
+    msg = "hello"
+
+    def inner():
+        nonlocal msg
+        msg = "hi"
+
+    inner()
+    print(msg)
+
+outer()  # Output: hi
+
+🧭 Summary Table
+Type	         Scope	Modification                  Keyword
+Local	        Inside one function only	           None
+Global	       Entire program	                     global
+Nonlocal	     Enclosing (outer) function only    	nonlocal
