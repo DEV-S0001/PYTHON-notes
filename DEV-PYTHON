@@ -850,3 +850,243 @@ nested = {
 import operator
 sorted_nested = dict(sorted(nested.items(), key=lambda x: x[1]['score']))
 Sorts based on inner field like 'score'
+
+🐍 Python Functions 
+->Python functions are reusable blocks of code designed to perform a specific task. 
+->They help in modularizing code, improving readability, and reducing redundancy.
+->They help break big problems into smaller parts and are very useful in real-world programming
+
+🔍 Key Concepts
+1. Function Definition
+EG:
+def function_name(parameters):
+    # code block
+    return result
+->def: Keyword to define a function
+->function_name: Identifier for the function
+->parameters: Optional inputs
+->return: Optional output
+
+2. Function Calling
+EG:
+function_name(arguments)
+
+3. Types of Functions
+->Built-in functions: len(), print(), type(), etc.
+->User-defined functions: Created using def
+->Lambda functions: Anonymous, single-expression functions
+
+4. Arguments
+->Positional arguments: Based on order
+->Keyword arguments: Specified by name
+->Default arguments: Have default values
+->Variable-length arguments:
+  *args: Non-keyword variable arguments
+  **kwargs: Keyword variable arguments
+
+5. Return Statement
+->Returns a value from the function.The return statement is used inside a function to send a result back to the caller. 
+->It also ends the function’s execution immediately.
+->Can return multiple values as a tuple
+EG:
+def add(a, b):
+    return a + b
+
+result = add(3, 5)
+print(result)  # Output: 8
+
+⚠️ Important Notes
+-> after a return statement won’t run.
+->You can use multiple return statements in a function, but only one will execute depending on the logic.
+->Functions always return something—either a value or None.
+
+💡 Best Practices
+->Use return to make your functions reusable and testable.
+->Avoid using print() inside functions when you need to use the result elsewhere—use return instead.
+->Document what your function returns using docstrings.
+
+6. Scope
+->Local scope: Variables inside a function
+->Global scope: Variables outside all functions
+->Use global keyword to modify global variables inside a function
+
+7. Docstrings
+->Used for documentation.
+->A docstring (short for documentation string) is a special kind of string used to describe 
+->what a function, class, or module does. It helps others (and your future self!) understand your code.
+SYNTAX : " " OR """ """
+EG:
+def greet():
+    """This function greets the user."""
+    print("Hello!")
+
+🧩pass Func()
+->It does nothing when executed.
+->It’s used to avoid errors in places where Python expects a statement.
+->Commonly used in empty functions, classes, loops, or conditionals.
+
+
+🔢 Positional Arguments
+->These are arguments passed to a function in the exact order the parameters are defined.
+
+✅ Example:
+def greet(name, age):
+    print(f"Hello {name}, you are {age} years old.")
+
+greet("Alice", 25)  # 'Alice' goes to name, 25 goes to age
+
+->The first value goes to the first parameter, the second to the second, and so on.
+->Order matters — swapping values can lead to unexpected results.
+
+🏷️ Keyword Arguments
+->These are passed by explicitly naming the parameter, so order doesn’t matter.
+✅ Example:
+
+def greet(name, age):
+    print(f"Hello {name}, you are {age} years old.")
+
+greet(age=25, name="Alice")  # Works fine!
+ 
+->You specify which value goes to which parameter.
+->Makes the function call more readable and flexible.
+
+🔀 Mixing Positional and Keyword Arguments
+->You can mix both, but positional arguments must come first.
+✅ Valid:
+greet("Alice", age=25)
+
+❌ Invalid:
+greet(age=25, "Alice")  # SyntaxError: positional argument follows keyword argument
+
+💡 Best Practices
+->Use positional arguments when the meaning is obvious and order is clear.
+->Use keyword arguments for clarity, especially with many parameters.
+->Avoid mixing too many types unless necessary.
+
+🧩Default Arguments
+->Default arguments are values you assign to function parameters in advance,
+->so if the caller doesn’t provide them, Python uses the defaults.
+
+🔍 Example:
+def show_info(name, city="Hyderabad"):
+    print("Name:", name)
+    print("City:", city)
+
+show_info("Ansh", "Delhi")   # Output: Name: Ansh, City: Delhi
+show_info("Shrey")           # Output: Name: Shrey, City: Hyderabad
+In the second call, city wasn’t provided, so it used the default "Hyderabad".
+
+⚠️ Important Rules
+->Default arguments must come after non-default ones.
+EG:
+def func(a, b=2):  # ✅ Valid
+def func(a=1, b):  # ❌ Invalid
+
+->You can override defaults by passing values explicitly.
+->Be careful with mutable defaults like lists or dictionaries—they persist across calls!
+
+📦 Variable-Length Arguments in Python
+->Variable-length arguments allow functions to accept a flexible number of inputs. Python provides two ways:
+->*args for non-keyword (positional) arguments
+->**kwargs for keyword arguments
+
+✅ 1. *args – Arbitrary Positional Arguments
+🔹 Purpose:
+->Allows a function to receive any number of positional arguments, packaged as a tuple.
+
+🔹 Syntax:
+def function_name(*args):
+    # args is a tuple
+
+🔹 EG:
+def add_all(*numbers):
+    return sum(numbers)
+
+->add_all(1, 2, 3, 4)  # Output: 10
+
+🔹 Notes:
+->You can iterate over args using a loop.
+->Useful when argument count may vary.
+
+✅ 2. **kwargs – Arbitrary Keyword Arguments
+🔹 Purpose:
+->Allows a function to receive any number of keyword arguments, packed as a dictionary.
+
+🔹 Syntax:
+def function_name(**kwargs):
+    # kwargs is a dict
+
+🔹 EG:
+def display_info(**details):
+    for key, value in details.items():
+        print(f"{key}: {value}")
+
+display_info(name="Alice", age=25)
+
+🔹 Notes:
+->Use .items() to access keys and values.
+->Useful for flexible configuration or optional parameters.
+
+🔀 Combining *args and **kwargs
+->You can use both in the same function, but the order matters.
+
+EG:
+def example_func(arg1, *args, **kwargs):
+    print("arg1:", arg1)
+    print("args:", args)
+    print("kwargs:", kwargs)
+🎯 Rule: *args must come before **kwargs
+
+⚠️ Best Practices & Tips
+->Name them clearly (*args, **kwargs) for convention, but you can rename (e.g., *items, **options).
+->Use when writing utility functions, wrappers, or building APIs.
+->Handle them carefully to avoid confusion between fixed and flexible parameters.
+->Use default values or validation when needed.
+
+🧪 Interview Questions & Examples
+Question	Sample Answer
+What is *args used for?	Accepts extra positional arguments in a function.
+What does **kwargs return?	A dictionary of keyword arguments.
+Can you use both together?	Yes. Syntax: def func(a, *args, **kwargs)
+How are values accessed in **kwargs?	Using .items() method for key-value pairs.
+
+🧠 Quick Summary
+Type	What It Does	Stored As
+Positional	Matches values by order	Variables
+Keyword	Matches values by parameter name	Variables
+*args	Packs extra positional arguments	Tuple
+**kwargs	Packs extra keyword arguments	Dictionary
+
+🔁 Recursive Functions in Python
+✅ What Is Recursion?
+->Recursion is when a function calls itself to solve a smaller version of the same problem.
+->It continues until it reaches a base case, which stops the recursion.
+
+🧩 Structure of a Recursive Function
+def recursive_function(parameters):
+    if base_case_condition:
+        return result
+    else:
+        return recursive_function(modified_parameters)
+
+->Base Case: Stops the recursion.
+->Recursive Case: Calls the function again with updated input.
+
+🔍 Example: Factorial Using Recursion
+def factorial(n):
+    if n == 0:
+        return 1
+    else:
+        return n * factorial(n - 1)
+
+print(factorial(5))  # Output: 120
+
+->factorial(5) calls factorial(4), then factorial(3), and so on until factorial(0).
+
+🧠 Key Concepts
+Term	                 Meaning
+Base Case	            Condition where recursion stops (e.g., n == 0)
+Recursive Case	       Function calls itself with smaller input (e.g., factorial(n-1))
+Stack	                Each recursive call is stored in memory until the base case is reached
+RecursionError       	Happens if recursion goes too deep without stopping
+
