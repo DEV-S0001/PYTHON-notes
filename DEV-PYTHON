@@ -383,17 +383,6 @@ You can imitate tuple comprehension by using:
 List comprehension inside the tuple() constructor, or
 Generator expression inside the tuple() constructor.
 
-✅ lambda Function()
-Think of lambda as a compact way to write small functions, especially when you don't want to use a full def block.
-EG:
-1)
-add = lambda x, y: x + y
-print(add(3, 5))  # Output: 8
-
-2)🌀 Sorting with lambda:
-data = [('apple', 3), ('banana', 1), ('cherry', 2)]
-sorted_data = sorted(data, key=lambda x: x[1])
-print(sorted_data)  # Sorted by number
 
 🔑key Function()
 The key parameter is used in functions like sorted(), max(), min(), etc.,
@@ -1089,4 +1078,42 @@ Base Case	            Condition where recursion stops (e.g., n == 0)
 Recursive Case	       Function calls itself with smaller input (e.g., factorial(n-1))
 Stack	                Each recursive call is stored in memory until the base case is reached
 RecursionError       	Happens if recursion goes too deep without stopping
+
+✅ lambda Function OR Anonymous Function()
+
+->In Python, an anonymous function is created using the lambda keyword.
+->It’s called “anonymous” because it’s defined without a name.
+->These are typically used for small, short-lived functions.
+->Think of lambda as a compact way to write small functions, especially when you don't want to use a full def block.
+EG:
+1)
+add = lambda x, y: x + y
+print(add(3, 5))  # Output: 8
+
+2)🌀 Sorting with lambda:
+data = [('apple', 3), ('banana', 1), ('cherry', 2)]
+sorted_data = sorted(data, key=lambda x: x[1])
+print(sorted_data)  # Sorted by number
+
+🧹filter()
+->The filter() function is used to filter items out of an iterable (like a list or tuple) based on a condition.
+->It returns only the elements that satisfy the condition provided by a function.
+
+🛠️ Syntax
+
+filter(function, iterable)
+->function: A function that returns True or False
+->iterable: The collection you want to filter (e.g. list, tuple)
+->It returns a filter object—you often convert this to a list like list(filter(...)).
+
+->SIMPLY:filter() takes a function (like a lambda) and an iterable (like a list), and keeps only the items where the function returns True.
+
+✅ Examples
+1. Filter Even Numbers
+
+nums = [1, 2, 3, 4, 5, 6]
+evens = list(filter(lambda x: x % 2 == 0, nums))
+print(evens)  # Output: [2, 4, 6]
+
+
 
