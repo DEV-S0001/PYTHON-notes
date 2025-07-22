@@ -1273,3 +1273,55 @@ Type	         Scope	Modification                  Keyword
 Local	        Inside one function only	           None
 Global	       Entire program	                     global
 Nonlocal	     Enclosing (outer) function only    	nonlocal
+
+
+
+#Streamlit
+->Streamlit is an open-source Python library for building interactive web apps and dashboards with only Python, no need for HTML, CSS, or JavaScript.
+->Ideal for dashboards, data-driven web apps, reporting tools, and quick prototypes for data science and machine learning projects.
+
+Key Features
+
+1)Easy to Use: Intuitive API, minimal code required, aimed at Python users.
+2)No Front-End Skills Needed: All UI and interactivity controlled by Python code.
+3)Integration with Popular Libraries: Works well with Pandas, NumPy, Matplotlib, etc..
+4)Real-Time Updates: Apps reload automatically when the source code changes.
+5)Supports Visualizations: Compatible with visualization libraries (Altair, Plotly, Matplotlib, Bokeh, etc.).
+6)Widgets: Built-in UI components like sliders, buttons, checkboxes, etc..
+7)Customizability: Theme support, multipage apps, and simple configuration.
+8)Extensible: Can be enhanced with custom or third-party components.
+9)Deployment: Run locally or deploy on cloud/server setups.
+
+#How to Install and Run Streamlit
+Installation:
+
+
+pip install streamlit
+Running an App:
+
+bash
+streamlit run filename.py
+This starts a local server (default at http://localhost:8501) where your app is accessible and interactive.
+
+Basic Streamlit Functions and Widgets
+Function	Usage Example	Description
+st.title()	st.title("My Title")	Displays a large page title.
+st.header()	st.header("Header")	Renders a section header.
+st.subheader()	st.subheader("Subheader")	Shows a smaller header.
+st.text()	st.text("Plain text")	Displays basic text string.
+st.markdown()	st.markdown("### Markdown text")	Renders text in markdown format.
+st.success()	st.success("Success message")	Shows a green highlight for success.
+st.info()	st.info("Info message")	Shows a blue highlight for information.
+st.warning()	st.warning("Warning message")	Shows a yellow highlight for warnings.
+st.error()	st.error("Error message")	Displays an error message in red.
+st.exception()	st.exception(Exception("Message"))	Displays exception trace.
+st.write()	st.write(value)	Versatile; displays text, lists, pandas DataFrames, etc.
+st.image()	st.image(img, width=200)	Shows an image (requires PIL's Image.open()).
+st.checkbox()	if st.checkbox("Option"):	Renders a checkbox input.
+st.radio()	st.radio("Label", ['A', 'B'])	Renders radio buttons (single selection).
+st.selectbox()	st.selectbox("Label", ['X', 'Y'])	Dropdown for single selection.
+st.multiselect()	st.multiselect("Label", ['A', 'B', 'C'])	Allows multiple selections from options.
+st.button()	if st.button("Do Something"):	Button for triggering code or actions.
+st.text_input()	st.text_input("Your name")	Input for text strings.
+st.slider()	st.slider("Number", 0, 10)	Slider for numeric input.
+st.number_input()	st.number_input("Number", 0.0)	Numeric input field (integer or float).
