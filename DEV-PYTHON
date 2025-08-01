@@ -1325,3 +1325,96 @@ st.button()	if st.button("Do Something"):	Button for triggering code or actions.
 st.text_input()	st.text_input("Your name")	Input for text strings.
 st.slider()	st.slider("Number", 0, 10)	Slider for numeric input.
 st.number_input()	st.number_input("Number", 0.0)	Numeric input field (integer or float).
+
+📘 What Is Exception Handling?
+->Exception handling is Python’s way of dealing with runtime errors—errors that occur while the code is running.
+Rather than letting the program crash, Python allows developers to manage these exceptions gracefully.
+
+🛠 Basic Syntax
+
+try:
+    # Code that might raise an error
+except ExceptionType:
+    # Code that runs if the error occurs
+else:
+    # Code that runs if no exception happens
+finally:
+    # Code that runs regardless of what happened
+🧩 Explanation of Each Block
+try: Contains code that might raise an exception.
+
+except: Handles specific exceptions to prevent a crash.
+
+else: Executes only if try block succeeds without errors.
+
+finally: Always executes—great for cleanup tasks.
+
+🔍 Common Python Exceptions
+Exception Type	When It Occurs
+ZeroDivisionError	Dividing by zero
+TypeError	Wrong data type operations
+ValueError	Inappropriate value passed
+KeyError	Missing dictionary key
+IndexError	Index out of range in lists/tuples
+FileNotFoundError	Trying to open a non-existent file
+
+🧠 What Are Errors in Python?
+Errors are issues that stop the program from working as expected. Python categorizes them broadly into three types:
+
+Syntax Errors
+
+Runtime Errors (Exceptions)
+
+Logical Errors
+
+📍 1. Syntax Errors
+These are mistakes in the structure of your code. Python can’t interpret it at all.
+
+🔹 Characteristics:
+Detected before execution (at compilation time).
+
+Often caused by typos or missing punctuation.
+
+✅ Examples:
+python
+print("Hello"  # missing closing parenthesis
+if x > 5       # missing colon
+🧠 Interview Note:
+Mention how syntax errors prevent the program from running altogether. A good IDE helps spot these early.
+
+📍 2. Runtime Errors (Exceptions)
+Errors that occur during execution, often due to invalid operations. These are also called exceptions, and we handle them using try-except.
+
+🔹 Common Types:
+Exception Type	Cause
+ZeroDivisionError	Division by zero
+ValueError	Wrong value type for operations
+TypeError	Mixing incompatible data types
+NameError	Using variable that isn’t defined
+IndexError	Accessing out-of-range index
+KeyError	Missing key in dictionary
+FileNotFoundError	Opening non-existent file
+
+✅ Example:
+python
+try:
+    result = 10 / 0
+except ZeroDivisionError:
+    print("You can’t divide by zero!")
+🧠 Interview Note:
+Explain how exception handling allows applications to fail gracefully.
+
+📍 3. Logical Errors
+->These are the trickiest! The program runs without crashing, but produces wrong output due to flaws in logic.
+
+🔹 Characteristics:
+->No error messages—just incorrect behavior.
+->Hardest to detect without careful testing.
+
+✅ Example:
+
+# Intended to compute area of rectangle
+def area(length, breadth):
+    return length + breadth  # logical error! should be length * breadth
+🧠 Interview Note:
+Emphasize the importance of testing, debugging, and code reviews to catch logical errors.
