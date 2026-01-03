@@ -83,12 +83,12 @@ Cleaner syntax and fewer boilerplate declarations
 Excellent for interactive use (e.g., REPL environments)
 
 🔁 Summary of Differences
-Feature	Static Typing	Dynamic Typing
-Type Checking	Compile-time	Runtime
-Type Declaration	Required or inferred	Optional and runtime-determined
-Error Detection	Before execution	During execution
-Development Speed	Slower, more structured	Faster, more flexible
-Common Languages	C, C++, Java, Rust, Scala	Python, JavaScript, PHP, Ruby
+Feature	            Static Typing	             Dynamic Typing
+Type Checking	      Compile-time	              Runtime
+Type Declaration	   Required or inferred	      Optional and runtime-determined
+Error Detection	    Before execution	          During execution
+Development Speed	  Slower, more structured	   Faster, more flexible
+Common Languages	C, C++, Java, Rust, Scala    	Python, JavaScript, PHP, Ruby
 
 🧮 1. Arithmetic Operators
 Used for basic mathematical calculations:
@@ -156,7 +156,7 @@ Used to compare memory locations:
 ->A string is a sequence of characters enclosed in quotes.
 ->Python supports single ', double ", and triple quotes ''' or """.
 ✨ 2. String Properties
-->mmutable: You cannot change characters in place.
+->immutable: You cannot change characters in place.
 ->Indexed & Sliced: Supports indexing (s[0]) and slicing (s[1:5]).
 ->Iterable: You can loop through a string.
 
@@ -212,7 +212,7 @@ zfill(width)	Pads string with zeros on the left
 
 
 🔍 5. String Operators
-+ → concatenation
++ → concatenation (hello + world = hello world )
 * → repetition
 in / not in → membership
 == / != → comparison
